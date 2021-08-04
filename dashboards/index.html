@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+    <link rel="stylesheet" href="../static/css/style2.css">
+
+    <title>Machine learning</title>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+
+  <!-- ======= Header ======= -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="http://127.0.0.1:5000">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link active" href="#Preprocessed-the-raw-data">Preprocessed The Raw Data</a>
+      <a class="nav-link" href="#exploration">Exploratory Analysis</a>
+      <a class="nav-link" href="#selection">Features Selection </a>
+      <a class="nav-link" href="#Model-Optimization">Model Optimization</a>
+      <a class="nav-link" href="#Deep-Learning-Model">Deep Learning Model</a>
+      <a class="nav-link" href="#Final-Results">Final Results</a>
+        
+      
+    </div>
+  </div>
+</nav>
+<section class="slider">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="../images/blue1.png" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h1>Machine Learning</h1>
+        </div>
+    </div>
+    <div class="carousel-item">
+      <img src="../images/blue1.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+          <h1>Machine Learning</h1>
+        </div>
+    </div>
+    <div class="carousel-item">
+      <img src="../images/blue1.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+          <h1>Machine Learning</h1>
+        </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="machine-learning">
+  <div class="container">
+      <h1>Machine Learning</h1>
+      <p class="para">The lifecycle of our machine learning model:</p>
+      <ul>
+        <li><p>Step 1: Preprocessed The Raw Data</p></li>
+        <li><p>Step 2: Performed an exploratory analysis</p></li>
+        <li><p>Step 3: Features Selection</p></li>
+        <li><p>Step 4: Model Optimization</p></li>
+        <li><p>Step 5: Deep Learning Model</p></li> 
+        <li><p>Step 6: Final Results</p></li> 
+      </ul>
+  </div>
+</section>
+
+<section class="Preprocessed-the-raw-data" id="Preprocessed the raw data">
+  <div class="container">
+    <h1>Step 1:  Preprocessed The Raw Data</h1>
+    <p>With the raw data loaded into a DataFrame using PyMongo, the first step was to convert all numerical variables into int / float format for processing using to_numeric(). Next, we checked for nulls and decided to drop the null values since it accounted for a small percentage of our rows. Once this was done, we encoded all categorical variables into numerical values that can be read by a Machine Learning algorithm.</p>
+    <img src="../images/9.png">
+  </div>
+</section>
+
+<section class="data-exploration" id="exploration">
+  <div class="container">
+    <h1>Step 2: Data Exploration </h1>
+    <p>In our exploratory analysis, we used the describe() method to create a statistical summary of our variables so we could assess our measures of central tendency and try to identify outliers. The next step was to use corr() to find variables that have a strong correlation with our target variable, price. We chose variables with a correlation coefficient above 0.20 to be used as features in our machine learning model. The following is a heatmap that shows correlation between our chosen variables.</p>
+    <img src="../images/6.png">
+  </div>
+</section>
+
+<section class="feature-selection" id="selection">
+  <div class="container">
+    <h1>Step 3:Machine Learning</h1>
+    <p>With preprocessing complete, and features selected, we were ready to start testing our machine learning models. Our X variables included the features shown in the correlation matrix above, and our 'y' variable was price. We split the data into training and testing sets with a random state of 45, test size of 30% and training set size of 70%. We chose three different types of regression models to predict our target variable: Random Forest Regressor, Linear Regression, and Decision Tree regression. We wanted to see how these three different models will perform, and which one of them will give us the highest R squared value.</p>
+
+    <p>The Random Forest Regressor algorithm is a supervised learning model that can be used for classification and, in our case, regression. We chose this algorithm as it is good at learning complex and non-linear relationships, and is easy to interpret. Limitations for this model include: chances of overfitting and may require more memory to run model. This model gave us the highest R squared value (0.56) out of all models tested, as shown below. Of course, we also utilized the simple Linear Regression supervised learning model, which is easy to implement, less complex when compared to other algorithms, and simple to interpret. Limitations for this model include: the model can be negatively affected by outliers and it could oversimplify real world problems by assuming linear relationships between variables. This model gave us an R squared value of 0.51. The final model we used was the decision tree model, which is a simpler version of the Random Forest model. We included this model as it is easy to understand and interpret, works with numerical and categorical features, and requires little data preprocessing. However, one drawback of this model is a tendency to overfit. The decision tree model gave us an R squared value of 0.47, which was the lowest of all models tested.</p>
+    <img src="../images/7.png">
+    <p>As we can see, further optimization needs to be done to make our models more accurate. I plan on optimizing these models for the next segment by: </p>
+    <ul>
+      <li><p>Dimensionality reduction by means of feature elimination or feature reduction</p></li>
+      <li><p>Modifying the train, test split</p></li>
+    </ul>
+    <p>In the next segment, we also plan on utilizing the comments column in our dataset to perform a sentiment analysis using NLP. </p>
+  </div>
+</section>
+
+<section class="Model-Optimization" id="Model Optimization">
+  <div class="container">
+    <h1>Step 4:Model Optimization</h1>
+
+    <p>Since the previous segment, we have worked on optimizing the machine learning model to boost R squared scores for each model. We did so by reselecting appropriate features from the dataset, changing the train test split to 67%, 33% respectively and removing outliers that were present in the target variable. We have also added a Deep Learning Model with two hidden layers. The final feature selection for our machine learning (based on correlation coefficients) models is as follows:</p>
+    <ul>
+      <li><p>room_type</p></li>
+      <li><p>accomodates</p></li>
+      <li><p>bathrooms</p></li>
+      <li><p>bedrooms</p></li>
+      <li><p>beds</p></li>
+      <li><p>price</p></li>
+      <li><p>security_deposit</p></li>
+      <li><p>cleaning_fee</p></li>
+      <li><p>air_conditioning</p></li>
+      <li><p>family_kid_friendly</p></li>
+      <li><p>elevator</p></li>
+   </ul>
+   <p>As we can see from the image below, there were outliers present in the price distribution which were giving the data a right skew. As we can see from the statistical summary, most of the samples from the price column are within the range of $215 and few samples that are less than $20 and greater than $500. </p>
+   <img src="../images/10.png">
+   <p>We ruled these ranges as outliers and removed them from the price distribution, which gave us a more normal looking distribution as seen below.</p>
+   <img src="../images/11.png">
+      
+  </div>
+</section>
+
+<section class="Deep-Learning-Model" id="Deep Learning Model">
+  <div class="container">
+    <h1>Step 5:  Deep Learning Model</h1>
+    <p>In addition to our model optimization efforts, we added a Deep Learning model. They are useful because their structure of layers can be adapted to many types of problems, and their hidden layers reduce the need for feature engineering. One weakeness of this model is that they are computationally intensive to train. </p>
+  </div>
+</section>
+
+<section class="Final-Results" id="Final Results">
+  <div class="container">
+    <h1>Step 6:  Final Results</h1>
+    <p>Here is a chart comparing the R squared value of all the optimized models. </p>
+    <img src="../images/12.png">
+    <ul>     
+      <li><p>Random Forest R Square Value : 0.6401468962074119</p></li>
+      <li><p>Deep Learning R Square Value : 0.5832696557887808</p></li>
+      <li><p>Decision Tree R Square Value : 0.5747005190100378</p></li>
+      <li><p>Linear Regression R Square Value : 0.5567145646136205</p></li> 
+    </ul>
+
+  </div>
+</section>    
+    
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

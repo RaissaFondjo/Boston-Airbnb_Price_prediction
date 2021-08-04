@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Boston Airbnb Prices Prediction</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+           <link rel="stylesheet" href="../static/css/style.css">
+           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+           <script src="script.js"></script>
+
+  
+        </head>
+  <!-- ======= Header The modular approach to the jQuery library allows the creation of powerful dynamic web pages and Web applications.
+ ======= -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="http://127.0.0.1:5000">Boston Airbnb Prices Prediction</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" href="http://127.0.0.1:5000">Home</a>
+        <a class="nav-link" href="https://raissafondjo.github.io/Group_6_Final_Project/dashboards/tableau/index.html">Dashboards</a>
+        <a class="nav-link" href="https://raissafondjo.github.io/Group_6_Final_Project/dashboards/index.html">Machine Learning </a>
+        <a class="nav-link" href="https://airbnb-top200-mapping.herokuapp.com/">Map</a>
+
+        <a class="nav-link" href="https://github.com/RaissaFondjo/Group_6_Final_Project">Github Repository</a>
+
+        
+      </div>
+    </div>
+  </nav>
+
+    <!--Jumbotron-->
+    <div class="jumbotron jumbotron-fluid">
+        <h1 class="display-4"><b>Boston Airbnb Prices Prediction</b></h1>
+    </div>
+ 
+ 
+
+ 
+ 
+        <div class="row align-items-center text-center m-0">
+        <div class="col-md-6">
+ 
+            <div class="container">
+                <div class="header">
+                  <h2>Features Input</h2>
+                </div>
+               
+                
+                <div class=form>
+                  <form action="/predict" method="POST" id="form">
+                  <div class="form-control">
+ 
+                  <label class='select_label'>Neighbourhood </label>
+                  <select id="neighbourhood_cleansed" name='neighbourhood_cleansed'>
+                    <option value="0">Roslindale</option>
+                    <option value="1">Jamaica Plain</option>
+                    <option value="2">Mission Hill</option>
+                    <option value="3">Bay Village</option>
+                    <option value="4">Longwood</option>
+                    <option value="5">Leather District</option>
+                    <option value="6">Chinatown</option>
+                    <option value="7">North End</option>
+                    <option value="8">Roxbury</option>
+                    <option value="9">South End</option>
+                    <option value="10">Back Bay</option>
+                    <option value="11">East Boston</option>
+                    <option value="12">Charlestown</option>
+                    <option value="13">West End</option>
+                    <option value="14">Beacon Hill</option>
+                    <option value="15">Downtown</option>
+                    <option value="18">Fenway</option>
+                    <option value="16">Brighton</option>
+                    <option value="19">West Roxbury</option>
+                    <option value="17">Hyde Park</option>
+                    <option value="20">Mattapan</option>
+                    <option value="21">Dorchester</option>
+                    <option value="22">South Boston Waterfront</option>
+                    <option value="23">South Boston</option>
+                    <option value="24">Allston</option>
+                    <option value="25">Harbor Islands</option>
+
+                  </select><br>
+                </div>
+ 
+                  <div class="form-control">
+                    <label>Bedrooms</label><br>
+                    <input type="number" placeholder="Enter A Number" id="bedrooms" name='bedrooms' required min="0"><br>
+                  </div>
+                  
+                  <div class="form-control">
+                    <label class='select_label'>Beds </label>
+                    <select id="beds" name='beds'>
+                      <option value="0">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select><br>
+                  </div>
+ 
+                  <div class="form-control">
+                    <label class='select_label'>Room Type</label><br>
+                    <select id="room_type" name='room_type'>
+                      <option value="0">Shared Room</option>
+                      <option value="1">Entire home/apt</option>
+                      <option value="2">Private Room</option>
+                    </select><br>
+                  </div>                       
+    
+ 
+                  <div class=form-control>
+                    <label class='select_label'>Accomodates</label><br>
+                    <select id="accomodates" name='accomodates'>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-control">
+                    <label class='select_label'>Air Conditioning</label><br>
+                    <select id="air_conditioning" name='air_conditioning'>
+                      <option value="0">No</option>
+                      <option value="1">Yes</option>
+                    </select><br>
+                  </div>  
+ 
+                  <div class=form-control>
+                    <label>Cleaning Fee</label><br>
+                    <input type="number" placeholder="Enter An Amount" id="cleaning_fee" name='cleaning_fee' required min="0"><br>
+                  </div>
+ 
+                  <div class=form-control>
+                    <label>Security Deposit</label><br>
+                    <input type="number" placeholder="Enter An Amount" id="security_deposit" name="security_deposit" required min="0"><br>
+                  </div>
+    
+              <button id="predict-btn" class="mt-20 btn action-1" style="background-color:#e9e196"><b> Predict Price</b></button>
+              
+                </form>
+              </div>
+            </div>
+             
+        
+    <div class="container-fliud">
+        <div class="row">
+         </div>
+     </div>
+    
+       </div>
+ <div class="col-md-6">
+     <div class="row">
+         <p class="background-para">
+             
+            </p>
+     </div>
+
+     <div class="row" id="result">
+         <p class="background-para"> The price is ${{ pred }}. </p>
+     </div>
+
+ </div>
+ 
+   
+    </div>
+
+    <script>
+        $("#form").on("submit", function (e){
+            if($("#security_deposit").val().length != 4 || $("#bedrooms").val().length != 4 || $("#cleaning_fee").val().length !=4){
+                console.log("error");
+                e.preventDefault();
+            }else {
+                console.log("success");
+                return true;
+            }
+        })
+    </script>
+</body>
+</html>
